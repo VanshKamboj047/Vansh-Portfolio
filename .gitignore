@@ -1,0 +1,62 @@
+# ==============================
+# Environment Files
+# ==============================
+.env
+.env.*
+!.env.example
+
+# ==============================
+# Dependencies
+# ==============================
+node_modules/
+vendor/
+
+# ==============================
+# Frontend Build
+# ==============================
+frontend/dist/
+frontend/.vite/
+
+# ==============================
+# Laravel
+# ==============================
+portfolio_backend/storage/logs/*
+portfolio_backend/storage/framework/cache/*
+portfolio_backend/storage/framework/sessions/*
+portfolio_backend/storage/framework/views/*
+portfolio_backend/bootstrap/cache/*.php
+
+# Laravel public storage symlink
+portfolio_backend/public/storage
+
+# ==============================
+# IDE
+# ==============================
+.vscode/
+.idea/
+
+# ==============================
+# OS
+# ==============================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ==============================
+# Logs
+# ==============================
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# ==============================
+# Docker
+# ==============================
+docker-compose.override.yml
+
+# ==============================
+# Temporary Files
+# ==============================
+*.tmp
+*.temp
