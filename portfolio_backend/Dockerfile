@@ -11,6 +11,8 @@ RUN apk add --no-cache \
     libzip-dev \
     oniguruma-dev \
     icu-dev \
+    nginx \
+    supervisor \
     mysql-client \
     $PHPIZE_DEPS
 
@@ -23,21 +25,22 @@ RUN docker-php-ext-install \
 
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
-# Copy Laravel application first
 COPY . .
 
-# Install PHP dependencies
 RUN composer install \
     --no-dev \
     --no-interaction \
     --prefer-dist \
     --optimize-autoloader
 
-# Laravel permissions
 RUN chown -R www-data:www-data \
     /var/www/storage \
     /var/www/bootstrap/cache
 
+RUN mkdir -p /run/nginx
+
+COPY docker/nginx/render.conf /etc/nginx/http.d/default.conf
+
 EXPOSE 10000
 
-CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=10000"]
+CMD ["sh", "-c", "php-fpm -D && nginx -g 'daemon off;'"]
