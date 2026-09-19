@@ -1,0 +1,286 @@
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #080808;
+}
+
+
+/* =====================================================
+   APP ROOT
+===================================================== */
+
+.app-root {
+  position: relative;
+  min-height: 100vh;
+  background: transparent;
+}
+
+
+/* =====================================================
+   FIXED BACKGROUND
+===================================================== */
+
+.fixed-background {
+  position: fixed;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 0;
+
+  overflow: hidden;
+  pointer-events: none;
+
+  background: #080808;
+}
+
+
+/* =====================================================
+   BLACK + GRAY GRADIENT
+===================================================== */
+
+.fixed-gradient {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(110, 110, 110, 0.18) 0%,
+      rgba(70, 70, 70, 0.08) 24%,
+      transparent 50%
+    ),
+
+    radial-gradient(
+      circle at 85% 25%,
+      rgba(120, 120, 120, 0.14) 0%,
+      rgba(70, 70, 70, 0.06) 25%,
+      transparent 52%
+    ),
+
+    radial-gradient(
+      circle at 50% 85%,
+      rgba(100, 100, 100, 0.10) 0%,
+      transparent 48%
+    ),
+
+      linear-gradient(16deg, #171718, #273d44);
+  min-height: 100vh;
+
+    /* linear-gradient(
+      115deg,
+      #b8b1b1 0%,
+      #0a0a0a 32%,
+      #383232 58%,
+      #090909 100%
+    ); */
+}
+
+
+/* =====================================================
+   MOVING PARTICLES
+===================================================== */
+
+.fixed-particles {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+}
+
+
+.particle-dot {
+  position: absolute;
+
+  display: block;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.45);
+
+  box-shadow:
+    0 0 5px rgba(255, 255, 255, 0.12);
+
+  animation-name: particleFloat;
+
+  animation-timing-function: ease-in-out;
+
+  animation-iteration-count: infinite;
+
+  animation-fill-mode: both;
+}
+
+
+@keyframes particleFloat {
+
+  0% {
+    opacity: 0.08;
+
+    transform:
+      translate3d(0, 0, 0);
+  }
+
+  25% {
+    opacity: 0.35;
+  }
+
+  50% {
+    opacity: 0.12;
+
+    transform:
+      translate3d(18px, -18px, 0);
+  }
+
+  75% {
+    opacity: 0.30;
+  }
+
+  100% {
+    opacity: 0.08;
+
+    transform:
+      translate3d(-12px, 14px, 0);
+  }
+}
+
+
+/* =====================================================
+   APP CONTENT
+===================================================== */
+
+.app-content {
+  position: relative;
+
+  z-index: 10;
+
+  min-height: 100vh;
+}
+
+
+/* =====================================================
+   PUBLIC PAGE
+===================================================== */
+
+.public-page {
+  position: relative;
+
+  min-height: 100vh;
+
+  background: transparent !important;
+}
+
+
+/*
+   IMPORTANT:
+   Existing sections may contain:
+   bg-[#f4f4f4]
+   bg-[#0e0e10]
+   bg-gray-100
+   etc.
+
+   These rules make the section backgrounds
+   transparent so the global background can show.
+*/
+
+.public-page section {
+  background-color: transparent !important;
+}
+
+
+/* Main wrappers */
+
+.public-page main {
+  background-color: transparent !important;
+}
+
+
+/* Header / footer */
+
+.public-page footer {
+  background-color: transparent !important;
+}
+
+
+/* =====================================================
+   KEEP COMMON CARD BACKGROUNDS
+===================================================== */
+
+/*
+   We do NOT globally remove white card backgrounds.
+   Your cards such as bg-white will remain visible.
+*/
+
+.public-page .bg-white {
+  background-color: rgb(255 255 255) !important;
+}
+
+
+/* =====================================================
+   ACCESSIBILITY
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .particle-dot {
+    animation: none;
+  }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 640px) {
+
+  .fixed-gradient {
+    background:
+      radial-gradient(
+        circle at 15% 20%,
+        rgba(100, 100, 100, 0.14) 0%,
+        transparent 48%
+      ),
+
+      radial-gradient(
+        circle at 85% 30%,
+        rgba(100, 100, 100, 0.10) 0%,
+        transparent 48%
+      ),
+
+      linear-gradient(
+        120deg,
+        #030303 0%,
+        #101010 50%,
+        #080808 100%
+      );
+  }
+
+  .particle-dot {
+    box-shadow: none;
+  }
+}
