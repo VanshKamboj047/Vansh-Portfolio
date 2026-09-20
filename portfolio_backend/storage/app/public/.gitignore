@@ -1,2 +1,14 @@
+# Ignore everything by default
 *
-!.gitignore
+
+# Allow portfolio asset directories
+!projects/
+!projects/**
+!profile/
+!profile/**
+!resume/
+!resume/**
+!service_icon/
+!service_icon/**
+!socialProfile_icon/
+!socialProfile_icon/**
