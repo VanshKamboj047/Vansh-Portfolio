@@ -82,7 +82,7 @@ body {
       transparent 48%
     ),
 
-      linear-gradient(16deg, #171718, #273d44);
+      linear-gradient(16deg, #202022, #273d44);
   min-height: 100vh;
 
     /* linear-gradient(
@@ -272,12 +272,7 @@ body {
         transparent 48%
       ),
 
-      linear-gradient(
-        120deg,
-        #030303 0%,
-        #101010 50%,
-        #080808 100%
-      );
+      linear-gradient(16deg, #202022, #273d44)
   }
 
   .particle-dot {
